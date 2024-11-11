@@ -1,0 +1,13 @@
+# ninja log v6
+43	762	7530608700189017	CMakeFiles/beamer.dir/main.cpp.obj	41df5c445b943cdc
+20	1259	7530608699950276	CMakeFiles/ImGui.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj	614d17f17b63260b
+27	1783	7530608700019017	CMakeFiles/ImGui.dir/external/imgui/imgui_demo.cpp.obj	3106935d5e98888b
+34	1878	7530608700096549	CMakeFiles/ImGui.dir/external/imgui/imgui_tables.cpp.obj	bc116a1ec15eebea
+16	1947	7530608699913644	CMakeFiles/ImGui.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj	f19d0b022638d17e
+30	2393	7530608700053435	CMakeFiles/ImGui.dir/external/imgui/imgui_draw.cpp.obj	d50ff8ec95a61286
+38	2641	7530608700136578	CMakeFiles/ImGui.dir/external/imgui/imgui_widgets.cpp.obj	ab4e949209848dea
+24	3398	7530608699990286	CMakeFiles/ImGui.dir/external/imgui/imgui.cpp.obj	b5a210d544d03e1b
+3398	3581	7530608733731487	libImGui.a	dcc4d6bc5db171d4
+3581	3751	7530608735565326	beamer.exe	766e7f717f138cf1
+41	380	7530610567646840	CMakeFiles/beamer.dir/main.cpp.obj	41df5c445b943cdc
+380	552	7530610571032997	beamer.exe	766e7f717f138cf1

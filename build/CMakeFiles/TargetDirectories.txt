@@ -1,0 +1,4 @@
+C:/Users/skander/OneDrive/Bureau/Graphics Programming/BeamTrace/build/CMakeFiles/ImGui.dir
+C:/Users/skander/OneDrive/Bureau/Graphics Programming/BeamTrace/build/CMakeFiles/beamer.dir
+C:/Users/skander/OneDrive/Bureau/Graphics Programming/BeamTrace/build/CMakeFiles/edit_cache.dir
+C:/Users/skander/OneDrive/Bureau/Graphics Programming/BeamTrace/build/CMakeFiles/rebuild_cache.dir
