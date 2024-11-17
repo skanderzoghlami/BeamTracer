@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.12)  # Consider using 3.12 or higher for better target-based control
 
 project(beamer VERSION 0.1.0 LANGUAGES C CXX)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)

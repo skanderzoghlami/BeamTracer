@@ -4,7 +4,6 @@
 #include <backends/imgui_impl_opengl3.h>
 #include <iostream>
 
-
 void ppm_image_writer(const int image_width, const int image_height, const char *filename)
 {
     if (image_width <= 0 || image_height <= 0)
