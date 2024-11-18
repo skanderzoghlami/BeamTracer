@@ -3,6 +3,7 @@
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 #include <iostream>
+#include "color.h"
 
 void ppm_image_writer(const int image_width, const int image_height, const char *filename)
 {
@@ -78,8 +79,20 @@ int main()
             std::cout << "Submitted Text: " << inputText << std::endl;
             ppm_image_writer(std::stoi(inputText), std::stoi(inputText2), "output.ppm");
         }
+        if (ImGui::Button("display"))
+        {
+            std::cout << "Displaying: " << std::endl;
+            try
+            {
+                PPMImage img("output.ppm");
+                displayImage(img);
+            }
+            catch (const std::exception &e)
+            {
+                std::cerr << e.what() << std::endl;
+            }
+        }
         ImGui::End();
-
         ImGui::Render();
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
@@ -95,5 +108,6 @@ int main()
     ImGui::DestroyContext();
     glfwDestroyWindow(window);
     glfwTerminate();
+
     return 0;
 }
