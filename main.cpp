@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vec3.h>
+#include <color.h>
 using namespace std;
 
 
@@ -13,7 +14,10 @@ void makeImage(){
     image << "P3\n" << width << " " << height << "\n255\n";
     for(int i = 0 ; i< height ; ++i)
         for(int j=0 ; j< width ; ++j)
-            image << int(255 * double(i)/height) << " " << int(255 * double(j)/width) << " " << int(255 * double(i*j)/(height*width)) << "\n";
+            {
+                color p_color(double(i)/height, double(j)/width, double(i*j)/(height*width));
+                write_color(image,p_color);
+            }
     image.close();
 }
 
