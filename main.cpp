@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <vec3.h>
 using namespace std;
 
 
