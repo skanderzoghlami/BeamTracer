@@ -5,9 +5,20 @@
 #include <ray.h>
 using namespace std;
 
+bool hit_sphere(const point3& center , const double& radius , const ray& r ){
+    double a = dot(r.get_direction(),r.get_direction());
+    vec3 oc = center - r.get_origin();
+    double b = -2.0 * dot(r.get_direction(),oc); 
+    double c = dot(oc,oc) - radius*radius;
+    return (b*b - 4 * a*c) >= 0;
+}
+
+
 
 
 color ray_color(const ray& r ){
+    if (hit_sphere(point3(0,0,-1),0.5,r))
+        return color(1,0,0);
     vec3 unit_direction = unit_vector(r.get_direction());
     double alpha= 0.5*(unit_direction.y() + 1.0);
     return (1.0 - alpha) * color(1.0,1.0,1.0) + alpha * color(0.5,0.7,1.0);
