@@ -5,20 +5,29 @@
 #include <ray.h>
 using namespace std;
 
-bool hit_sphere(const point3& center , const double& radius , const ray& r ){
-    double a = dot(r.get_direction(),r.get_direction());
+double hit_sphere(const point3& center , const double& radius , const ray& r ){
+    auto a = dot(r.get_direction(),r.get_direction());
     vec3 oc = center - r.get_origin();
-    double b = -2.0 * dot(r.get_direction(),oc); 
-    double c = dot(oc,oc) - radius*radius;
-    return (b*b - 4 * a*c) >= 0;
+    auto b = -2.0 * dot(r.get_direction(),oc); 
+    auto c = dot(oc,oc) - radius*radius;
+    auto discriminant = b*b - 4 *a*c ;
+
+    if(discriminant < 0 )
+        return -1.0 ;
+    return (-b - sqrt(discriminant))/ (2.0 * a);
 }
 
 
 
 
 color ray_color(const ray& r ){
-    if (hit_sphere(point3(0,0,-1),0.5,r))
-        return color(1,0,0);
+
+    double t = hit_sphere(point3(0,0,-1 ),0.5,r);
+    if (t > 0.0)
+        {
+            vec3 normal = unit_vector(r.at(t) - vec3(0,0,-1));
+            return 0.5 * color(normal.x() +1 , normal.y() + 1 , normal.z() + 1);
+        }
     vec3 unit_direction = unit_vector(r.get_direction());
     double alpha= 0.5*(unit_direction.y() + 1.0);
     return (1.0 - alpha) * color(1.0,1.0,1.0) + alpha * color(0.5,0.7,1.0);
