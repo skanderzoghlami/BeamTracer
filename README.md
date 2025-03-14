@@ -1,5 +1,5 @@
 # Iteration 3: Shading using normal maps
-The normal of a sphere can be seen as the vector going from the center to the point of impact, when we normalize that vector we'll have each component going from -1 to 1, if we add 1 and multiply by 0.5 we can make them between 0 and 1 and thus we can use those values as colors.
+The normal of each point on the surface of the sphere can be seen as the vector going from it's center to the point of impact, when we normalize that vector we'll have each component going from -1 to 1, if we add 1 and multiply by 0.5 we can make them between 0 and 1 and thus we can use those values as colors.
 
 ![image](https://github.com/user-attachments/assets/abc4f6fe-c83b-4ef7-aac7-894f20940bdc)
 # Iteration 2: Adding the Ray to sphere intersection formula and rendering an image of a sphere
