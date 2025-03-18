@@ -8,6 +8,7 @@ class camera {
 public:
 double aspect_ratio = 1.0;  // Ratio of image width over height
 int    image_width  = 100;  // Rendered image width in pixel count
+int samples_per_pixel = 10;
 void render(const hittable& world){
     initialize();
     std::ofstream image ;
@@ -16,11 +17,12 @@ void render(const hittable& world){
     for(int j = 0 ; j< image_height ; ++j)
         for(int i=0 ; i< image_width ; ++i)
             {
-                point3 pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
-                vec3 ray_direction = pixel_center - center;
-                ray r(center,ray_direction);
-                color p_color = ray_color(r,world);
-                write_color(image,p_color);
+                color pixel_color(0,0,0);
+                for (int sample = 0 ;  sample < samples_per_pixel ; ++sample){
+                    ray r = get_ray(i,j);
+                    pixel_color += ray_color(r,world);
+                }
+                write_color(image,pixel_color * pixel_sample_scale);
             }
     image.close();
     }
@@ -30,11 +32,12 @@ point3 center;         // Camera center
 point3 pixel00_loc;    // Location of pixel 0, 0
 vec3   pixel_delta_u;  // Offset to pixel to the right
 vec3   pixel_delta_v;  // Offset to pixel below
+double pixel_sample_scale ;
 
 void initialize() {
     image_height = int(image_width / aspect_ratio);
     image_height = (image_height < 1) ? 1 : image_height;
-
+    pixel_sample_scale = 1.0 / samples_per_pixel;
     center = point3(0, 0, 0);
 
     // Determine viewport dimensions.
@@ -65,7 +68,14 @@ color ray_color(const ray& r , const hittable& world ){
     double alpha= 0.5*(unit_direction.y() + 1.0);
     return (1.0 - alpha) * color(1.0,1.0,1.0) + alpha * color(0.5,0.7,1.0);
 }
-
+ray get_ray(int i , int k) const {
+    auto offset = sample_square();
+    auto pixel_sample = pixel00_loc + (i + offset.x()) * pixel_delta_u + (k + offset.y()) * pixel_delta_v;
+    return ray(center, pixel_sample - center);
+}
+vec3 sample_square() const {
+    return vec3(random_double() - 0.5  , random_double() - 0.5 , 0);
+}
 };
 
 

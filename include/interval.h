@@ -1,5 +1,5 @@
 #ifndef INTERVAL_H
-#define INTRVAL_H
+#define INTERVAL_H
 class interval {
     public:
     double min, max ;
@@ -13,6 +13,11 @@ class interval {
     }
     bool size() const {
         return max - min ;
+    }
+    double clamp(double x) const{
+        if (x< min) return min ; 
+        if (x> max) return max ; 
+        return x ; 
     }
     const static interval empty,universe ;
 };
