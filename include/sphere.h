@@ -8,7 +8,7 @@
 class sphere: public hittable{
     public:
     sphere(const point3& c , double r) : center(c) , radius(std::fmax(0,r)) {}
-    bool hit(const ray&r , double t_min , double t_max , hit_record& rec){
+    bool hit(const ray&r , double t_min , double t_max , hit_record& rec) const override{
         vec3 oc = center - r.get_origin();
         auto h = dot(r.get_direction(),oc);
         auto a = dot(r.get_direction(),r.get_direction());
