@@ -1,3 +1,12 @@
+# Iteration 6: Diffuse Material
+Instead of using normal maps as colors, we do some real Ray tracing
+We start by camera center, go to the viewport where we choose a center of pixel + some offset for antialiasing, then this ray goes until it meets a surface, if it does it bounces to a random direction recursively until it no longer intersects with anything.. and we do this for all the rays of the vewport.. 
+for occluded parts of the scene, there will be a lot of bouncing so it loses almost all the energy, that's why we have shadows.
+
+![image](https://github.com/user-attachments/assets/5c268157-4d05-4637-b4d4-fbb006f3140a)
+
+
+
 # Iteration 5 : Less Shaggy pixels ! Antialiasing
 What we were doing so far is called point sampling, and it has some flaws (the chessboard example) to solve this we sample n random points for each pixel instead of just the center, we then average the sum of their contributions.
 
