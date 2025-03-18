@@ -1,3 +1,12 @@
+# Iteration 4: Small organization with OOP
+Hittable has a virtual = 0 function that MUST be implemented by any class that inherites from it
+Sphere has a hit function that uses the equation of a sphere
+Hittable_List has a dynamic list of shared pointers that point to Hittable objects
+
+![image](https://github.com/user-attachments/assets/0ecfcb0e-76ac-4af6-86b0-47ebc8da8343)
+
+
+
 # Iteration 3: Shading using normal maps
 The normal of each point on the surface of the sphere can be seen as the vector going from it's center to the point of impact, when we normalize that vector we'll have each component going from -1 to 1, if we add 1 and multiply by 0.5 we can make them between 0 and 1 and thus we can use those values as colors.
 
