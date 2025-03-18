@@ -1,7 +1,5 @@
 #ifndef INTERVAL_H
 #define INTRVAL_H
-#include <rtutils.h>
-
 class interval {
     public:
     double min, max ;
