@@ -5,6 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <interval.h>
 
 
 // C++ Std Usings
