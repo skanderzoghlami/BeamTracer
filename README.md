@@ -1,3 +1,10 @@
+# Iteration 4 Result: A new World
+Now that we have the hittable class, we can define a world using hittables, if we define two sphere one small and 1 big we get the following image.
+(Notes: Some conventions taken here is that the normals always point against the ray and the normal are always unit vectors)
+
+![image](https://github.com/user-attachments/assets/531757ab-53e1-4491-85d0-b57349f22fa9)
+
+
 # Iteration 4: Small organization with OOP
 Hittable has a virtual = 0 function that MUST be implemented by any class that inherites from it
 Sphere has a hit function that uses the equation of a sphere
