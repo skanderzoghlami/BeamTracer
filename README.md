@@ -1,3 +1,8 @@
+# Iteration 6: Improvement (Shadow Acnee and less child bounces)
+Since we're using a recurive function to make the bouncing, it's a wise idea to limit the number of bounces to not overflow the stack causing the program to be killed.
+Shadow acnee is happening because of float imprecisions, sometimes the ray bounces to the same surface thus causing more loss of energy that shouldn't actually happen, we fix this by ignoring the very close ray bounces.
+
+![image](https://github.com/user-attachments/assets/e67d6b0c-d1d1-4d71-ab29-9c092b5515c5)
 # Iteration 6: Diffuse Material
 Instead of using normal maps as colors, we do some real Ray tracing
 We start by camera center, go to the viewport where we choose a center of pixel + some offset for antialiasing, then this ray goes until it meets a surface, if it does it bounces to a random direction recursively until it no longer intersects with anything.. and we do this for all the rays of the vewport.. 
