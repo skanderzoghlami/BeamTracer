@@ -1,3 +1,9 @@
+# Iteration 5 : Less Shaggy pixels ! Antialiasing
+What we were doing so far is called point sampling, and it has some flaws (the chessboard example) to solve this we sample n random points for each pixel instead of just the center, we then average the sum of their contributions.
+
+![image](https://github.com/user-attachments/assets/f931aa78-3f92-4ff6-86cf-f9c4768178a7)
+
+
 # Iteration 4 Result: A new World
 Now that we have the hittable class, we can define a world using hittables, if we define two sphere one small and 1 big we get the following image.
 (Notes: Some conventions taken here is that the normals always point against the ray and the normal are always unit vectors)
