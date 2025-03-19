@@ -2,6 +2,10 @@
 Since we're using a recurive function to make the bouncing, it's a wise idea to limit the number of bounces to not overflow the stack causing the program to be killed.
 Shadow acnee is happening because of float imprecisions, sometimes the ray bounces to the same surface thus causing more loss of energy that shouldn't actually happen, we fix this by ignoring the very close ray bounces.
 
+If the Ray Bounces a lot, it loses energy with each bounce(50%) thus making it blacker (Shadow regions have surfaces that are very close and that occludes each other)
+If the Ray Doesn't hit anything we render the gradient.
+If the Ray hits only once it keeps most of its energy.
+
 ![image](https://github.com/user-attachments/assets/e67d6b0c-d1d1-4d71-ab29-9c092b5515c5)
 # Iteration 6: Diffuse Material
 Instead of using normal maps as colors, we do some real Ray tracing
