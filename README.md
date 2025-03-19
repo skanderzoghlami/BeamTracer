@@ -1,3 +1,10 @@
+# Iteration 6: Improvement Lambertian Reflection 
+Instead of samling vectors on the hemisphere centered on the impact point, we now apply the normal vector to displace us from the point of impact and we sample vectors fromm that sphere, doing this assures us that we only send our rays in directions close to the normal, since we do this we can see the effect on the shadows since now they'll be bouncing more on the adjacent surfaces instead of randomly which make the shadows darker.
+
+![Presentation1](https://github.com/user-attachments/assets/ecada6f6-65ee-48b5-9b7a-29d9e09a86d6)
+
+
+
 # Iteration 6: Improvement (Shadow Acnee and less child bounces)
 Since we're using a recurive function to make the bouncing, it's a wise idea to limit the number of bounces to not overflow the stack causing the program to be killed.
 Shadow acnee is happening because of float imprecisions, sometimes the ray bounces to the same surface thus causing more loss of energy that shouldn't actually happen, we fix this by ignoring the very close ray bounces.
