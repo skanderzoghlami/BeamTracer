@@ -1,3 +1,8 @@
+# Iteration 7: (Improvement) Controlling Metal reflectance through fuzziness
+![Fuzzz](https://github.com/user-attachments/assets/2cba8cee-81bd-495a-941e-0725897e085a)
+
+
+
 # Iteration 7: The Material Class (Lambertian and Metalic)
 We create a new class called Material and two other classes that extends and override it, Lambertian and Metalic; They both have an albedo color attribute and a an overridable scatter function that differs from material to the other, for the Lambertian we do the same as previously, we sample a point on the hemisphere centered around the point that we get from adding the normal vector to the point of impact and the the point of impact to the sampled point is our random ray, for the metalic we don't sample random vectors but we use **the Reflection Formula** which works aas follows: we project the incident ray into the normal ray (dot product) this gives us a scalar of how much they're aligned, we use that scalar to scale the normal vector and then we double it and negate it and we add it to the incident vector to get the reflected ray.
 ![image](https://github.com/user-attachments/assets/7c67abda-8af7-4186-8cd4-a83e5c4ce686)
