@@ -7,7 +7,8 @@
 
 class sphere: public hittable{
     public:
-    sphere(const point3& c , double r) : center(c) , radius(std::fmax(0,r)) {}
+    sphere(const point3& center, double radius, shared_ptr<material> mat)
+      : center(center), radius(std::fmax(0,radius)), mat(mat) {}
     bool hit(const ray&r , interval ray_t , hit_record& rec) const override{
         vec3 oc = center - r.get_origin();
         auto a = r.get_direction().length_squared();
@@ -26,6 +27,7 @@ class sphere: public hittable{
             }
             rec.t = root ;
             rec.p = r.at(root);
+            rec.mat = mat ;
             vec3 outward_normal = (rec.p - center)/radius;
             /* Convention, normals are always opposite to ray direction */
             rec.set_front_face(r,outward_normal);
@@ -34,5 +36,6 @@ class sphere: public hittable{
     private:
     point3 center ;
     double radius ;
+    shared_ptr<material> mat;
 };
 #endif // SPHERE_H
