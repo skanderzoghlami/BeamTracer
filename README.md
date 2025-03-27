@@ -1,7 +1,6 @@
 # Iteration 8: ADding the Dielectric class
 Dielectrics are materials that when light interacts with it gets refracted inside the material, each Dielectric has a specific index, and using Snell's law we can solve for the direction of the reflected ray.
-
-![image](https://github.com/user-attachments/assets/621458a2-1ef1-4417-a54e-464df5376a3f)
+![Reflectance](https://github.com/user-attachments/assets/3e640ebc-0fc6-4f24-8efe-55d731ee5890)
 
 
 # Iteration 7: (Improvement) Controlling Metal reflectance through fuzziness
