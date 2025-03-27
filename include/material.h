@@ -63,13 +63,29 @@ public:
         attenuation = color(1.0,1.0,1.0);
 
         vec3 unit_direction = unit_vector(r_in.get_direction());
-        vec3 refracted = refract(unit_direction, rec.normal, ri);
-        scattered = ray(rec.p , refracted) ; 
+
+        double cos_theta = std::fmin(dot(-unit_direction, rec.normal), 1.0);
+        double sin_theta = std::sqrt(1.0 - cos_theta*cos_theta);
+        vec3 direction ; 
+        if(sin_theta *ri > 1.0 || reflectance(cos_theta,ri) > random_double()){
+            direction = reflect(unit_direction, rec.normal);
+        }
+        else{
+            direction = refract(unit_direction, rec.normal, ri);
+        }
+
+        scattered = ray(rec.p , direction) ; 
         return true;
     }
 
 private : 
     double refraction_index;
+    static double reflectance(double cosine, double ref_idx){
+        // Use Schlick's approximation for reflectance
+        auto r0 = (1-ref_idx) / (1+ref_idx);
+        r0 = r0*r0;
+        return r0 + (1-r0)*std::pow((1-cosine),5);
+    }
 };
 
 
