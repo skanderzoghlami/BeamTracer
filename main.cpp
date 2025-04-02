@@ -25,7 +25,7 @@ int main() {
 
 
     camera cam;
-
+    cam.vfov = 90.0;
     cam.aspect_ratio = 16.0 / 9.0;
     cam.image_width  = 400;
     cam.samples_per_pixel = 100;
