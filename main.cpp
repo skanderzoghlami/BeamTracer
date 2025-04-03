@@ -29,6 +29,9 @@ int main() {
     cam.aspect_ratio = 16.0 / 9.0;
     cam.image_width  = 400;
     cam.samples_per_pixel = 100;
+    cam.lookfrom = point3(0,2,1);
+    cam.lookat   = point3(0,0,-1);
+    cam.vup      = vec3(0,1,0);
 
     cam.render(world);
     cout << "Done.\n";
