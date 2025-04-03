@@ -1,4 +1,12 @@
-# Iteration 8: ADding the Dielectric class
+# Iteration 9: Adding the Possibility to change camera position 
+
+The idea is to define an orthonormal base around the center of the image, imagine we have two points, the first one is the position of your head's center of mass let's call it lookfrom, now we have where your head is originally looking at let's define a point from the lookfrom to a given point in the direction of the lookat, now we have our first vector in the basis  (which by convention will be from lookat to lookfrom for our basis to be right handed ); Next we need a second vector which MUST be orthonormal to the first, to do that we take a random vector usually called the up vector that  guess what looks up 🤣 and do the cross product betwee it and the first vector and we get our second, the thrid vector will just be the cross product between the two previous ones and will be the true up vector, now the first one will help us define the focal length, the second one help us define the vieport horizental and third one the viewport vertical.
+
+![CameraChange](https://github.com/user-attachments/assets/a07a074f-4ea5-418b-aad3-098aaa49cb91)
+
+
+
+# Iteration 8: Adding the Dielectric class
 Dielectrics are materials that when light interacts with it gets refracted inside the material, each Dielectric has a specific index, and using Snell's law we can solve for the direction of the reflected ray.
 ![Reflectance](https://github.com/user-attachments/assets/3e640ebc-0fc6-4f24-8efe-55d731ee5890)
 
