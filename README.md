@@ -1,3 +1,9 @@
+#  Beamtracer 
+Beamtracer is a raytracer that I implemented by following the Raytracing in 1 weekend book, it allows you to render ppm images that contains spheres of different materials (Glass / Diffuse / Dielectric), Some other features are also implemented such as Antialiasing Gamma correction, and Defocus blur, The camera is also controllable and can move throught the scene.
+This is a very basic implementation that is very slow if the number of spheres in the scene increases.
+
+![image](https://github.com/user-attachments/assets/d84fd699-e3ed-4dfa-b166-b5ce431b188e)
+
 # Iteration 9: Adding the Possibility to change camera position 
 
 The idea is to define an orthonormal base around the center of the image, imagine we have two points, the first one is the position of your head's center of mass let's call it lookfrom, now we have where your head is originally looking at let's define a point from the lookfrom to a given point in the direction of the lookat, now we have our first vector in the basis  (which by convention will be from lookat to lookfrom for our basis to be right handed ); Next we need a second vector which MUST be orthonormal to the first, to do that we take a random vector usually called the up vector that  guess what looks up 🤣 and do the cross product betwee it and the first vector and we get our second, the thrid vector will just be the cross product between the two previous ones and will be the true up vector, now the first one will help us define the focal length, the second one help us define the vieport horizental and third one the viewport vertical.
